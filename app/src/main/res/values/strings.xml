@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Code Analyzer</string>
+    <string name="user">Kritopoulos</string>
+    <string name="URL">https://api.github.com/</string>
+    <string name="ReposPath">https://api.github.com/</string>
+
+</resources>
