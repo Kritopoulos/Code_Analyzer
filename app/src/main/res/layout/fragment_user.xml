@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="userViewModel"
             type="com.example.codeanalyzer.user.UserViewModel" />
@@ -77,8 +76,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_below="@+id/repos"
-            android:scrollbars="vertical"
+            android:layout_marginTop="10dp"
 
+            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
