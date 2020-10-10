@@ -12,19 +12,31 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".entryFragment.EntryFragment">
+        tools:context=".entryFragment.EntryFragment"
+        android:background="@color/colorAccent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:src="@drawable/analyzer"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/repositoryName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/repositoryName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="268dp"
-            android:hint="Git github username"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="@dimen/TextSize18"
             android:textStyle="bold"
             android:typeface="monospace"
+            android:hint="@string/git_github_username"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,8 +45,9 @@
         <Button
             android:id="@+id/searchButton"
             android:layout_width="wrap_content"
+            android:background="@drawable/card_background"
             android:layout_height="wrap_content"
-            android:text="SEARCH"
+            android:text="@string/search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

@@ -6,10 +6,14 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("/users/Kritopoulos/repos")
-    fun getRepositories(): Call<List<GitRepositories>>
+    @GET("/users/{userName}/repos")
+    fun getRepositories(@Path("userName") userName : String): Call<List<GitRepositories>>
 
-    @GET("/users/Kritopoulos")
-    fun getUser(): Call<UserDetails>
+
+    @GET("/users/{userName}")
+    fun getUser(@Path("userName") userName : String): Call<UserDetails>
+
+    @GET("/repos/Kritopoulos/Code_Analyzer/branches")
+    fun getBranches():Call<List<Branches>>
 }
 

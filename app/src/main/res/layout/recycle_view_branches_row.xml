@@ -25,7 +25,7 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/repositoryName"
+                android:id="@+id/branchName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -34,27 +34,27 @@
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/owner"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/repositoryName"-->
-<!--                android:layout_marginTop="9dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="@dimen/TextSize14"-->
-<!--                android:textStyle="bold"-->
-<!--                android:typeface="monospace" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/owner"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_below="@+id/repositoryName"-->
+            <!--                android:layout_marginTop="9dp"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="@dimen/TextSize14"-->
+            <!--                android:textStyle="bold"-->
+            <!--                android:typeface="monospace" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/fullname"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/owner"-->
-<!--                android:layout_marginTop="9dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="@dimen/TextSize14"-->
-<!--                android:textStyle="bold"-->
-<!--                android:typeface="monospace" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/fullname"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_below="@+id/owner"-->
+            <!--                android:layout_marginTop="9dp"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="@dimen/TextSize14"-->
+            <!--                android:textStyle="bold"-->
+            <!--                android:typeface="monospace" />-->
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

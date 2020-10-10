@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Code Analyzer</string>
     <string name="user">Kritopoulos</string>
-    <string name="URL">https://api.github.com/</string>
+    <string name="BASE_URL">https://api.github.com/</string>
     <string name="ReposPath">https://api.github.com/</string>
+    <string name="git_hub_repositories">Git Hub Repositories</string>
+    <string name="git_github_username">Git github username</string>
+    <string name="search">SEARCH</string>
 
 </resources>
