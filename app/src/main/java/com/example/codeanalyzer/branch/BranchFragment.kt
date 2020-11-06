@@ -25,7 +25,7 @@ class BranchFragment: Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_branch, container, false)
         viewModel = ViewModelProviders.of(this).get(BranchViewModel::class.java)
-
         return binding.root
+
     }
 }

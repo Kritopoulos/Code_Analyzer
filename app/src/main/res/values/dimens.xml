@@ -5,4 +5,9 @@
     <dimen name="TextSize28">18sp</dimen>
     <dimen name="TextSize14">14sp</dimen>
     <dimen name="dimen_6">6sp</dimen>
+    <dimen name="TextSize10">10dp</dimen>
+    <dimen name="margleftText15">15dp</dimen>
+    <dimen name="maginUserTexts8">8dp</dimen>
+    <dimen name="TextSize12">12sp</dimen>
+    <dimen name="user_image_size">100sp</dimen>
 </resources>

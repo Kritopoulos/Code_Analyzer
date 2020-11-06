@@ -1,25 +1,24 @@
-package com.example.codeanalyzer.api
+package com.example.codeanalyzer.apiGithub
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Owner {
-    @SerializedName("login")
+class Branches {
+
+    @SerializedName("name")
     @Expose
     private var userName: String
 
 
     constructor(userName: String) {
         this.userName = userName
-
     }
 
-    fun getUserName(): String {
+    fun getBranchName(): String {
         return userName
     }
 
     fun setName(userName: String) {
         this.userName = userName
     }
-
 }

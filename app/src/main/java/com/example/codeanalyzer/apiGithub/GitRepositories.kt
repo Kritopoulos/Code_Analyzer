@@ -1,4 +1,4 @@
-package com.example.codeanalyzer.api
+package com.example.codeanalyzer.apiGithub
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -9,7 +9,12 @@ class GitRepositories {
     @Expose
     private var name: String
 
+    @SerializedName("private")
+    @Expose
     private var securtity: Boolean
+
+    @SerializedName("owner")
+    @Expose
     private var owner: Owner
 
     constructor(id: String, full_name: Boolean, owner: Owner) {
@@ -41,4 +46,5 @@ class GitRepositories {
     fun setOwner(owner: Owner) {
         this.owner = owner
     }
+
 }

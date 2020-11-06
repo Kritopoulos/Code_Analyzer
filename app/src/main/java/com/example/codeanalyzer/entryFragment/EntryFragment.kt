@@ -7,13 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.codeanalyzer.R
 import com.example.codeanalyzer.databinding.FragmentEntryBinding
-import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 
 @Suppress("DEPRECATION")
 class EntryFragment : Fragment() {

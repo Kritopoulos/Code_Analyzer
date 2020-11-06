@@ -48,16 +48,27 @@
             app:argType="string"
             app:nullable="true" />
         <action
-            android:id="@+id/user_to_branch"
-            app:destination="@id/branchesFragment"
+            android:id="@+id/user_to_analyzer"
+            app:destination="@id/analyzed_files"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
             app:popUpTo="@id/userFragment" />
     </fragment>
     <fragment
-        android:id="@+id/branchesFragment"
-        android:name="com.example.codeanalyzer.branch.BranchFragment"
+        android:id="@+id/analyzed_files"
+        android:name="com.example.codeanalyzer.analyzedFiles.AnalyzedFilesFragment"
         android:label="user"
         app:popUpTo="@id/userFragment"
-        tools:layout="@layout/fragment_branch" />
+        tools:layout="@layout/fragment_analyzed_files">
+
+        <argument
+            android:name="url"
+            android:defaultValue="give a name"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>

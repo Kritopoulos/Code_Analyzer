@@ -8,7 +8,7 @@ class UserViewModelFactory(private val userName: String, private val context: Co
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(UserViewModel::class.java)) {
             // TODO Construct and return the ScoreViewModel
-            return UserViewModel(userName,context) as T
+            return UserViewModel(context,userName) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

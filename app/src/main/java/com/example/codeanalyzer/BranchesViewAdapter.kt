@@ -1,5 +1,6 @@
 package com.example.codeanalyzer
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.util.Log
@@ -8,52 +9,41 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.codeanalyzer.api.Branches
+import com.example.codeanalyzer.apiGithub.Branches
+import com.example.codeanalyzer.user.UserFragmentDirections
 
-class BranchesViewAdapter (private val context: Context, private val item: List<Branches>) :
+@Suppress("DEPRECATION")
+class BranchesViewAdapter(private val context: Context, private val item: List<Branches>,private val navController: NavController,private val url: String) :
     RecyclerView.Adapter<BranchesViewAdapter.ViewHolder>() {
 
+    @SuppressLint("InflateParams")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.recycle_view_branches_row, null)
-        return ViewHolder(view).listen{position, type ->
+        val view: View = LayoutInflater.from(context).inflate(R.layout.branches_row, null)
+        return ViewHolder(view).listen { position, type ->
             val item = item[position]
         }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         holder.branchName.text = item[position].getBranchName()
-//        holder.owner.text = "Owner: ${item[position].getOwner().getUserName()}"
-//        if(item[position].getSecurity())
-//            holder.security.text = "private"
-//        else
-//            holder.security.text = "public"
-
     }
 
-    override fun getItemCount()= item.size
-
+    override fun getItemCount() = item.size
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // var security: TextView
-        var branchName: TextView
-        //var owner:TextView
-
-        init {
-
-            branchName = itemView.findViewById<View>(R.id.branchName) as TextView
-            // security = itemView.findViewById<View>(R.id.fullname) as TextView
-            // owner = itemView.findViewById(R.id.owner)
-        }
+        var branchName: TextView = itemView.findViewById<View>(R.id.branchName) as TextView
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun <T : RecyclerView.ViewHolder> T.listen(event: (position: Int, type: Int) -> Unit): T {
         itemView.setOnClickListener {
             event.invoke(adapterPosition, itemViewType)
-            Log.d("kappa","tsatsatsa")
+            item[position].getBranchName()
+            navController.navigate(UserFragmentDirections.userToAnalyzer(url+item[position].getBranchName()))
         }
         return this
-    }}
+    }
+}

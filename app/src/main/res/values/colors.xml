@@ -6,4 +6,6 @@
     <color name="black">#000000</color>
     <color name="darkGray">#1C1C1C</color>
     <color name="white">#FFFFFF</color>
+    <color name="colorGreen">#345953</color>
+    <color name="colorBluewTextViews">#4F54FB</color>
 </resources>
