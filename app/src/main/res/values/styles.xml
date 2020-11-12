@@ -10,25 +10,47 @@
     <style name="textStyle" parent="@android:style/TextAppearance">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">8sp</item>
-        <item name="android:layout_marginEnd">8sp</item>
-        <item name="android:layout_marginStart">15sp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/textColor</item>
     </style>
 
     <style name="recyclersTextStyle" parent="@android:style/TextAppearance">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginTop">7sp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/textColor</item>
     </style>
 
     <style name="cardViewAppearance" parent="CardView">
         <item name="android:textColor">@color/black</item>
-        <item name="android:layout_margin">10dp</item>
         <item name="android:foreground"> ?android:attr/selectableItemBackground </item>
-        <item name="cardBackgroundColor">@color/colorAccent</item>
+        <item name="cardBackgroundColor">@color/transparent</item>
         <item name="cardElevation">0dp</item>
+    </style>
+    
+    <style name="CircleProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/circle_bar</item>
+        <item name="android:background">@drawable/circle</item>
+
+    </style>
+
+    <style name="horizontalProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/horizontal_bar</item>
+    </style>
+
+    <style name="buttonAppearance">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:background">@drawable/gradient</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:foreground"> ?android:attr/selectableItemBackground </item>
+    </style>
+
+    <style name="simpleTextStyle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textColor</item>
     </style>
 
 </resources>

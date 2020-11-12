@@ -12,6 +12,6 @@
     <string name="repositoryName">MyLocationAppliaction</string>
     <string name="git_profile"><u>GitHub profile </u></string>
     <string name="BranchText">Branches</string>
-
+    <string name="violation"><![CDATA[<Violation>]]></string>
 
 </resources>

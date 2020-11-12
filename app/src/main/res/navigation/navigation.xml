@@ -20,55 +20,70 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/entryFragment">
-
+    app:startDestination="@id/entry_destination">
 
     <fragment
-        android:id="@+id/entryFragment"
+        android:id="@+id/entry_destination"
         android:name="com.example.codeanalyzer.entryFragment.EntryFragment"
-        android:label="entry"
-        tools:layout="@layout/fragment_entry">
+        android:label="entry_fragment"
+        tools:layout="@layout/entry_fragment">
         <action
             android:id="@+id/entry_to_user"
-            app:destination="@id/userFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left" />
-    </fragment>
-    <fragment
-        android:id="@+id/userFragment"
-        android:name="com.example.codeanalyzer.user.UserFragment"
-        android:label="user"
-        tools:layout="@layout/fragment_user">
-        <argument
-            android:name="repoName"
-            android:defaultValue="give a name"
-            app:argType="string"
-            app:nullable="true" />
-        <action
-            android:id="@+id/user_to_analyzer"
-            app:destination="@id/analyzed_files"
+            app:destination="@id/user_destination"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:launchSingleTop="true"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
-            app:popUpTo="@id/userFragment" />
+            app:popUpTo="@+id/entry_destination"/>
     </fragment>
     <fragment
-        android:id="@+id/analyzed_files"
+        android:id="@+id/user_destination"
+        android:name="com.example.codeanalyzer.userRepositories.UserFragment"
+        android:label="user_fragment"
+        tools:layout="@layout/user_fragment">
+
+        <argument
+            android:name="repoName"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/user_to_analyzed_files"
+            app:destination="@id/analyzed_files_destination"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@+id/user_destination"
+            />
+        <action
+            android:id="@+id/action_user_destination_to_entry_destination"
+            app:destination="@id/entry_destination"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/analyzed_files_destination"
         android:name="com.example.codeanalyzer.analyzedFiles.AnalyzedFilesFragment"
-        android:label="user"
-        app:popUpTo="@id/userFragment"
-        tools:layout="@layout/fragment_analyzed_files">
+        android:label="analyzed_files_fragment"
+        tools:layout="@layout/analyzed_files_fragment">
 
         <argument
             android:name="url"
-            android:defaultValue="give a name"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_analyzed_files_destination_to_user_destination"
+            app:destination="@id/user_destination"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+
     </fragment>
 
 </navigation>

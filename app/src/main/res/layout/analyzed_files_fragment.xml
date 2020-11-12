@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="analyzedFilesViewModel"
+            type="com.example.codeanalyzer.analyzedFiles.AnalyzedFilesViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        tools:context=".analyzerIncome.AnalyzedFilesFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:background="@color/transparent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/upCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/cardViewAppearance"
+                    android:visibility="invisible"
+                    app:layout_collapseMode="parallax">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gradient"
+                        app:layout_anchor="@+id/constraintLayout"
+                        app:layout_anchorGravity="center">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/appCompatImageView3"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/analyzed_files_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/analyzedFilesTxt"
+                            style="@style/simpleTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="22dp"
+                            app:layout_constraintStart_toEndOf="@+id/appCompatImageView3"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/appCompatImageView"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/violations_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView3" />
+
+                        <TextView
+                            android:id="@+id/violationsFoundTxt"
+                            style="@style/simpleTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/analyzedFilesTxt" />
+
+                        <Button
+                            android:id="@+id/importantViolationsBtn"
+                            style="@style/buttonAppearance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="22dp"
+                            android:layout_marginTop="22dp"
+                            android:text="important"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/violationsFoundTxt" />
+
+                        <Button
+                            android:id="@+id/ordinaryViolationsBtn"
+                            style="@style/buttonAppearance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="22dp"
+                            android:text="ordinary"
+                            app:layout_constraintStart_toEndOf="@+id/importantViolationsBtn"
+                            app:layout_constraintTop_toBottomOf="@+id/violationsFoundTxt" />
+
+                        <Button
+                            android:id="@+id/insignificantViolationsBtn"
+                            style="@style/buttonAppearance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="22dp"
+                            android:layout_marginEnd="22dp"
+                            android:text="insignif"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ordinaryViolationsBtn"
+                            app:layout_constraintTop_toBottomOf="@+id/violationsFoundTxt" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_analyze_bar"
+                            style="@style/CircleProgressBar"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="24dp"
+                            app:layout_constraintEnd_toEndOf="@+id/importantViolationsBtn"
+                            app:layout_constraintStart_toStartOf="@+id/importantViolationsBtn"
+                            app:layout_constraintTop_toBottomOf="@+id/importantViolationsBtn" />
+
+                        <TextView
+                            android:id="@+id/importantProgressTXT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="@color/textColor"
+                            app:layout_constraintBottom_toBottomOf="@+id/progress_analyze_bar"
+                            app:layout_constraintEnd_toEndOf="@+id/progress_analyze_bar"
+                            app:layout_constraintStart_toStartOf="@+id/progress_analyze_bar"
+                            app:layout_constraintTop_toTopOf="@+id/progress_analyze_bar" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_ordinary_bar"
+                            style="@style/CircleProgressBar"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="24dp"
+                            app:layout_constraintEnd_toEndOf="@+id/ordinaryViolationsBtn"
+                            app:layout_constraintStart_toStartOf="@+id/ordinaryViolationsBtn"
+                            app:layout_constraintTop_toBottomOf="@+id/ordinaryViolationsBtn" />
+
+                        <TextView
+                            android:id="@+id/ordinaryProgressTXT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="@color/textColor"
+
+                            app:layout_constraintBottom_toBottomOf="@+id/progress_ordinary_bar"
+                            app:layout_constraintEnd_toEndOf="@+id/progress_ordinary_bar"
+                            app:layout_constraintStart_toStartOf="@+id/progress_ordinary_bar"
+                            app:layout_constraintTop_toTopOf="@+id/progress_ordinary_bar" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_insignificant_bar"
+                            style="@style/CircleProgressBar"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="24dp"
+                            app:layout_constraintEnd_toEndOf="@+id/insignificantViolationsBtn"
+                            app:layout_constraintStart_toStartOf="@+id/insignificantViolationsBtn"
+                            app:layout_constraintTop_toBottomOf="@+id/insignificantViolationsBtn" />
+
+                        <TextView
+                            android:id="@+id/insignificantProgressTXT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="@color/textColor"
+
+                            app:layout_constraintBottom_toBottomOf="@+id/progress_insignificant_bar"
+                            app:layout_constraintEnd_toEndOf="@+id/progress_insignificant_bar"
+                            app:layout_constraintStart_toStartOf="@+id/progress_insignificant_bar"
+                            app:layout_constraintTop_toTopOf="@+id/progress_insignificant_bar" />
+
+                        <ProgressBar
+
+                            android:id="@+id/totalProgress"
+                            style="?android:attr/progressBarStyleHorizontal"
+
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+
+                            android:progressDrawable="@drawable/horizontal_bar"
+
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.497"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress_analyze_bar"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                        <TextView
+                            android:id="@+id/totalProgressTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="@color/textColor"
+
+                            app:layout_constraintBottom_toBottomOf="@+id/totalProgress"
+                            app:layout_constraintEnd_toEndOf="@+id/totalProgress"
+                            app:layout_constraintTop_toTopOf="@+id/totalProgress" />
+
+                        <ProgressBar
+                            android:id="@+id/startBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:indeterminateDrawable="@drawable/circle_progress_bar"
+                            android:indeterminateDuration="@android:integer/config_longAnimTime"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ProgressBar
+                            android:id="@+id/loading"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"
+                            android:indeterminateDrawable="@drawable/circle_progress_bar"
+                            android:indeterminateDuration="@android:integer/config_longAnimTime"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/totalProgressTxt"
+                            app:layout_constraintTop_toBottomOf="@+id/progress_insignificant_bar" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:clipToPadding="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_violations"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
