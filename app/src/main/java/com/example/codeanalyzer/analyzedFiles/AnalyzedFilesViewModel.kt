@@ -6,10 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.codeanalyzer.R
-import com.example.codeanalyzer.analyzerIncome.QualityResponse
-import com.example.codeanalyzer.apiAnalyzer.AnalyzeApiService
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import com.example.codeanalyzer.analyzedFiles.analyzerIncome.QualityResponse
+import com.example.codeanalyzer.services.AnalyzeApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,16 +52,16 @@ class AnalyzedFilesViewModel(private var context: Context, private var url: Stri
 
         val callAnalyzer: Call<QualityResponse> = service.getQuality(aurl)
         callAnalyzer.enqueue(object : Callback<QualityResponse> {
+
             override fun onResponse(
                 call: Call<QualityResponse>,
                 response: Response<QualityResponse>
             ) {
                 _qualityResponse.value = response.body()
-                Log.d("kappa", _qualityResponse.value?.getResults()?.getOverallQuality() ?: "op")
             }
 
             override fun onFailure(call: Call<QualityResponse>, t: Throwable) {
-                Log.d("kappa", "failed")
+                _qualityResponse.value = null
             }
         })
     }

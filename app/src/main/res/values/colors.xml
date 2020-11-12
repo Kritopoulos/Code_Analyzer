@@ -2,10 +2,14 @@
 <resources>
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#2B3E4A</color>
+    <color name="colorAccent">#121212</color>
     <color name="black">#000000</color>
     <color name="darkGray">#1C1C1C</color>
     <color name="white">#FFFFFF</color>
     <color name="colorGreen">#345953</color>
     <color name="colorBluewTextViews">#4F54FB</color>
+    <color name="yellow">#FF9800</color>
+    <color name="red">#D10000</color>
+    <color name="transparent">#00000000</color>
+    <color name="textColor">#C5C5C5</color>
 </resources>
