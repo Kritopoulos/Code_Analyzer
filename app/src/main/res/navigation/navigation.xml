@@ -26,22 +26,49 @@
     <fragment
         android:id="@+id/entryFragment"
         android:name="com.example.codeanalyzer.entryFragment.EntryFragment"
-        android:label="entry">
+        android:label="entry"
+        tools:layout="@layout/fragment_entry">
         <action
             android:id="@+id/entry_to_user"
             app:destination="@id/userFragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
         android:name="com.example.codeanalyzer.user.UserFragment"
-        android:label="user">
+        android:label="user"
+        tools:layout="@layout/fragment_user">
         <argument
             android:name="repoName"
+            android:defaultValue="give a name"
             app:argType="string"
-            app:nullable="true"
-            android:defaultValue="give a name" />
+            app:nullable="true" />
+        <action
+            android:id="@+id/user_to_analyzer"
+            app:destination="@id/analyzed_files"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/userFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/analyzed_files"
+        android:name="com.example.codeanalyzer.analyzedFiles.AnalyzedFilesFragment"
+        android:label="user"
+        app:popUpTo="@id/userFragment"
+        tools:layout="@layout/fragment_analyzed_files">
 
+        <argument
+            android:name="url"
+            android:defaultValue="give a name"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>

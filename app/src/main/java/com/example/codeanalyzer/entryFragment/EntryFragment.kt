@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.codeanalyzer.R
 import com.example.codeanalyzer.databinding.FragmentEntryBinding
-import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
 
+@Suppress("DEPRECATION")
 class EntryFragment : Fragment() {
 
     private lateinit var binding: FragmentEntryBinding
@@ -22,17 +21,15 @@ class EntryFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_entry, container, false)
 
-        viewModel = ViewModelProviders.of(this).get(EntryViewModel::class.java)
-        binding.entryFragment = viewModel
-        binding.lifecycleOwner = this
-
         binding.searchButton.setOnClickListener {
-            val action = EntryFragmentDirections.entryToUser(binding.repositoryName.text.toString())
-            findNavController().navigate(action)
+            if (binding.repositoryName.text.toString() != "")
+                findNavController().navigate(EntryFragmentDirections.entryToUser(binding.repositoryName.text.toString()))
+            else
+                Toast.makeText(this.activity, "Give a name", Toast.LENGTH_SHORT).show()
         }
         return binding.root
     }

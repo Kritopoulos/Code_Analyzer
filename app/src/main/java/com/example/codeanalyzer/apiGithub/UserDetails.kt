@@ -1,4 +1,4 @@
-package com.example.codeanalyzer.api
+package com.example.codeanalyzer.apiGithub
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -17,17 +17,22 @@ class UserDetails {
     @Expose
     private var htmlUrl: String
 
-    constructor(userName: String, avatarUrl: String, htmlUrl: String) {
+    @SerializedName("public_repos")
+    @Expose
+    private var publicRepos: Int
+
+    constructor(userName: String, avatarUrl: String, htmlUrl: String,publicRepos:Int) {
         this.userName = userName
         this.avatarUrl = avatarUrl
         this.htmlUrl = htmlUrl
+        this.publicRepos = publicRepos
     }
 
     fun getUserName(): String {
         return userName
     }
 
-    fun setName(userName: String) {
+    fun setUserName(userName: String) {
         this.userName = userName
     }
 
@@ -35,15 +40,23 @@ class UserDetails {
         return avatarUrl
     }
 
+    fun setAvatarUrl(avatarUrl:String) {
+        this.avatarUrl = avatarUrl
+    }
+
     fun setHtmlUrl(avatarUrl: String) {
         this.avatarUrl = avatarUrl
     }
 
-    fun gethtmlUrl(): String {
+    fun getHtmlUrl(): String {
         return htmlUrl
     }
 
-    fun sethtmlUrl(htmlUrl: String) {
-        this.htmlUrl = htmlUrl
+    fun getPublicRepos(): Int {
+        return publicRepos
+    }
+
+    fun setPublicRepos(publicRepos: Int) {
+        this.publicRepos = publicRepos
     }
 }

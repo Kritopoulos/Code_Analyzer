@@ -1,7 +1,17 @@
 <resources>
+
+
     <string name="app_name">Code Analyzer</string>
     <string name="user">Kritopoulos</string>
-    <string name="URL">https://api.github.com/</string>
+    <string name="BASE_URL">https://api.github.com/</string>
+    <string name="ANALYZER_BASE_URL">http://10.0.2.2:8080/</string>
     <string name="ReposPath">https://api.github.com/</string>
+    <string name="git_hub_repositories">Git Hub Repositories</string>
+    <string name="git_github_username">Git github username</string>
+    <string name="search">SEARCH</string>
+    <string name="repositoryName">MyLocationAppliaction</string>
+    <string name="git_profile"><u>GitHub profile </u></string>
+    <string name="BranchText">Branches</string>
+
 
 </resources>
